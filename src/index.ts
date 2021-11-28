@@ -33,7 +33,7 @@ app.post('/send', (req, res) => {
     Object.keys(body).forEach((key) => {
         body[key] = key !== 'email' ? (body[key].charAt(0).toUpperCase() + body[key].slice(1)) : body[key];
     });
-    const message = `${body.message}\n\n${body.firstname} ${body.lastname}`;
+    const message = `Un message important vous a été envoyé depuis votre site web paulsurrans.fr :\n\n${body.message}\n\n${body.firstname} ${body.lastname}`;
     const emailTemplateSource = fs.readFileSync(path.join(__dirname, "/templates/template.hbs"), "utf8");
     const mailgunAuth = {
         auth: {
