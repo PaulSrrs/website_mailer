@@ -37,8 +37,8 @@ app.post('/send', (req, res) => {
     const emailTemplateSource = fs.readFileSync(path.join(__dirname, "/templates/template.hbs"), "utf8");
     const mailgunAuth = {
         auth: {
-            api_key: process.env.API_KEY,
-            domain: process.env.DOMAIN
+            api_key: process.env.MAILGUN_API_KEY,
+            domain: process.env.MAILGUN_DOMAIN
         }
     };
     const smtpTransport = nodeMailer.createTransport(mg(mailgunAuth));
@@ -49,7 +49,7 @@ app.post('/send', (req, res) => {
     });
     const mailOptions = {
         from: body.email,
-        to: process.env.TO,
+        to: process.env.MAILGUN_RECEIVER,
         subject: body.subject,
         html: htmlToSend
     };
