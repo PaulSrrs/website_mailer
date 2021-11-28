@@ -1,2 +1,2 @@
 # website_mailer
-Website mailer which works thanks to mailjet service.
+Paul Surrans website mailer which works thanks to typescript, nodejs, handlebars, mailgun and nodemailer service.
